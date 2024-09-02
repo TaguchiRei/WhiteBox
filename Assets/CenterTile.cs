@@ -12,8 +12,10 @@ public class CenterTile : MonoBehaviour
 {
     [SerializeField] float _rotateAngle = 1;
     [SerializeField] float _rotateTime = 1;
+    GameManager _gameManager;
     float timer = 0;
-    List<GameObject> tileList = new List<GameObject>();
+    public List<Vector3> angle; //= new List<Vector3> ();
+    public List<GameObject> tileList; //new List<GameObject>();
 
     private void Update()
     {
@@ -33,13 +35,11 @@ public class CenterTile : MonoBehaviour
     public void RotateTile()
     {
         GameManager._canMove = false;
-        List<Vector3> angle = new List<Vector3> { transform.forward, transform.right + transform.forward, transform.right, transform.right * -1 + transform.forward };
-        RaycastHit Hit;
-        RaycastHit Hit2;
+        angle.AddRange(new Vector3[]{ transform.forward, transform.right + transform.forward, transform.right, transform.right * -1 + transform.forward });
         angle.ForEach(i =>
         {
-            var ray = Physics.Raycast(transform.position, i, out Hit);
-            var ray2 = Physics.Raycast(transform.position, i * -1, out Hit2);
+            var ray = Physics.Raycast(transform.position, i, out RaycastHit Hit);
+            var ray2 = Physics.Raycast(transform.position, i * -1, out RaycastHit Hit2);
             tileList.AddRange(new GameObject[] { Hit.collider.gameObject, Hit2.collider.gameObject });
         });
         tileList.ForEach(i => i.transform.SetParent(transform)) ;
@@ -47,5 +47,14 @@ public class CenterTile : MonoBehaviour
         tileList.Clear();
         transform.DORotate(new Vector3(0, 90 * _rotateAngle, 0), _rotateTime, RotateMode.LocalAxisAdd);
         timer = _rotateTime;
+    }
+    private void Start()
+    {
+        _gameManager = GameObject.FindObjectOfType<GameManager>();
+        _gameManager.GameStart += GameStart;
+    }
+    void GameStart()
+    {
+
     }
 }

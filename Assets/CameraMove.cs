@@ -5,6 +5,7 @@ public class CameraMove : MonoBehaviour
 {
     [SerializeField] Image Image;
     [SerializeField] Sprite[] sprites;
+    [SerializeField] GameManager _gameManager;
     float time = 0;
     
     void Update()
@@ -22,14 +23,14 @@ public class CameraMove : MonoBehaviour
         {
             transform.Rotate(mouse * -1, 0, 0);
         }
-        RaycastHit hit;
-        var ray = Physics.Raycast(transform.position, transform.forward, out hit);
-        if (ray && hit.transform.gameObject.tag == "CenterTile")
+        var ray = Physics.Raycast(transform.position, transform.forward, out RaycastHit hit);
+        if (ray && hit.transform.gameObject.CompareTag("CenterTile"))
         {
             Image.sprite = sprites[0];
             if (Input.GetButtonDown("Jump") && time == 0f)
             {
                 hit.collider.gameObject.GetComponent<CenterTile>().RotateTile();
+                _gameManager.AddRotate();
                 time = 1.2f;
             }
         }
