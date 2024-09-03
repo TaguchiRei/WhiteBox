@@ -251,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 18842654}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 27.42, z: 10.5}
+  m_LocalPosition: {x: 0, y: 27.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -273,6 +273,7 @@ MonoBehaviour:
   _gravity: 1
   moveSpeed: 15
   _rig: {fileID: 18842655}
+  _gameManager: {fileID: 637213650}
 --- !u!65 &18842662
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1888,6 +1889,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateAngle: 1
   _rotateTime: 1
+  _walls:
+  - {fileID: 7386315804225886816, guid: 8b33f16eca86f7d4cb87367d72dc904f, type: 3}
+  - {fileID: 1670250451900232646, guid: 1f35c83418a642d4aaa54e38c1b0d155, type: 3}
+  angle: []
+  tileList: []
 --- !u!1 &400768933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2745,6 +2751,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateAngle: 1
   _rotateTime: 1
+  _walls:
+  - {fileID: 7386315804225886816, guid: 8b33f16eca86f7d4cb87367d72dc904f, type: 3}
+  - {fileID: 1670250451900232646, guid: 1f35c83418a642d4aaa54e38c1b0d155, type: 3}
+  angle: []
+  tileList: []
 --- !u!1 &637213649
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,6 +4040,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateAngle: 1
   _rotateTime: 1
+  _walls:
+  - {fileID: 7386315804225886816, guid: 8b33f16eca86f7d4cb87367d72dc904f, type: 3}
+  - {fileID: 1670250451900232646, guid: 1f35c83418a642d4aaa54e38c1b0d155, type: 3}
+  angle: []
+  tileList: []
 --- !u!1 &923173198
 GameObject:
   m_ObjectHideFlags: 0
@@ -4561,6 +4577,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 99c26cc64a3d76345a29cb0382189f07, type: 3}
   - {fileID: 21300000, guid: 1dd7448695ad37940bc775bd656c4bf6, type: 3}
+  _gameManager: {fileID: 637213650}
 --- !u!1 &979589556
 GameObject:
   m_ObjectHideFlags: 0
@@ -4786,6 +4803,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateAngle: 1
   _rotateTime: 1
+  _walls:
+  - {fileID: 7386315804225886816, guid: 8b33f16eca86f7d4cb87367d72dc904f, type: 3}
+  - {fileID: 1670250451900232646, guid: 1f35c83418a642d4aaa54e38c1b0d155, type: 3}
+  angle: []
+  tileList: []
 --- !u!1 &1069289926
 GameObject:
   m_ObjectHideFlags: 0
@@ -8300,37 +8322,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998189488}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2002876480
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2002876481}
-  m_Layer: 0
-  m_Name: game
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2002876481
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002876480}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3919582, y: 37.99006, z: 5.9554825}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009314748
 GameObject:
   m_ObjectHideFlags: 0
@@ -8558,6 +8549,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateAngle: 1
   _rotateTime: 1
+  _walls:
+  - {fileID: 7386315804225886816, guid: 8b33f16eca86f7d4cb87367d72dc904f, type: 3}
+  - {fileID: 1670250451900232646, guid: 1f35c83418a642d4aaa54e38c1b0d155, type: 3}
+  angle: []
+  tileList: []
 --- !u!1 &2139027807
 GameObject:
   m_ObjectHideFlags: 0
@@ -8783,14 +8779,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateAngle: 1
   _rotateTime: 1
+  _walls:
+  - {fileID: 7386315804225886816, guid: 8b33f16eca86f7d4cb87367d72dc904f, type: 3}
+  - {fileID: 1670250451900232646, guid: 1f35c83418a642d4aaa54e38c1b0d155, type: 3}
+  angle: []
+  tileList: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 705507995}
+  - {fileID: 637213651}
   - {fileID: 18842660}
   - {fileID: 1183167612}
-  - {fileID: 2002876481}
   - {fileID: 446638645}
   - {fileID: 1595983117}
-  - {fileID: 637213651}

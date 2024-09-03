@@ -9,8 +9,7 @@ public class GravitySystem : MonoBehaviour
     void Update()
     {
         //重力用レイキャスト
-        RaycastHit hit;
-        var hitG = Physics.Raycast(transform.position, transform.up*-1,out hit);
+        var hitG = Physics.Raycast(transform.position, transform.up*-1,out RaycastHit hit);
         if (hitG)
         {
             transform.SetParent(hit.transform);
@@ -20,7 +19,7 @@ public class GravitySystem : MonoBehaviour
     private void FixedUpdate()
     {
         //重力をかける
-        Vector3 gravityDirection = new Vector3(0,-1*_gravity*9.81f,0);
+        Vector3 gravityDirection = new(0,-1*_gravity*9.81f,0);
         Vector3 worldG = transform.TransformPoint(gravityDirection);
         _rig.AddForce(worldG,ForceMode.Acceleration);
     }

@@ -6,7 +6,7 @@ public class Move : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] Rigidbody _rig;
     [SerializeField] GameManager _gameManager;
-    private void Start()
+    private void Awake()
     {
         _gameManager.GameStart += GameStart;
     }

@@ -16,15 +16,19 @@ public class GameManager : MonoBehaviour
         get { return _gameStart; }
         set { _gameStart = value; }
     }
+    public Action tileLayer
+    {
+        get; set;
+    }
     private void Start()
     {
-        _gameStart();
+        _gameStart(); 
     }
     public  void AddRotate()
     {
         _rotate++;
     }
-    public  void Awake()
+    public  void AddKey()
     {
         _key++;
     }
