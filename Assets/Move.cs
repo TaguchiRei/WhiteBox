@@ -14,11 +14,11 @@ public class Move : MonoBehaviour
     void Update()
     {
         //重力用レイキャスト
-        var hitG = Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hit);
-        if (hitG)
-        {
-            transform.SetParent(hit.transform);
-        }
+        //var hitG = Physics.Raycast(transform.position, transform.up * -1, out RaycastHit hit);
+        //if (hitG)
+        //{
+        //    transform.SetParent(hit.transform);
+        //}
         //動かすためのプログラム
         var holizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");

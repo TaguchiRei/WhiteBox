@@ -223,8 +223,8 @@ GameObject:
   - component: {fileID: 6959912765960378648}
   - component: {fileID: 3717469877186372753}
   m_Layer: 0
-  m_Name: Cube (4)
-  m_TagString: Untagged
+  m_Name: pillar
+  m_TagString: Pillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4314441748141186607}
   m_Layer: 0
-  m_Name: wallMass1
+  m_Name: piller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,8 +363,8 @@ GameObject:
   - component: {fileID: 5624319997487769101}
   - component: {fileID: 6033246963639104361}
   m_Layer: 0
-  m_Name: Cube (2)
-  m_TagString: Untagged
+  m_Name: pillar
+  m_TagString: Pillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 1583018889713248351}
   - component: {fileID: -337755552778134959}
   - component: {fileID: 3781702644743521831}
-  - component: {fileID: -1135166284589286348}
+  - component: {fileID: 1372268917907123315}
   m_Layer: 0
   m_Name: wall1
   m_TagString: Untagged
@@ -629,7 +629,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
   m_Center: {x: 0, y: -0.2, z: 0}
---- !u!54 &-1135166284589286348
+--- !u!54 &1372268917907123315
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3571524974046632183}
   m_Layer: 0
-  m_Name: pillar
+  m_Name: wallMass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -809,8 +809,8 @@ GameObject:
   - component: {fileID: 667031105753587275}
   - component: {fileID: 1085221520641445191}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: pillar
+  m_TagString: Pillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -914,8 +914,8 @@ GameObject:
   - component: {fileID: 311224157506285602}
   - component: {fileID: 2466965438956242465}
   m_Layer: 0
-  m_Name: Cube (3)
-  m_TagString: Untagged
+  m_Name: pillar
+  m_TagString: Pillar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

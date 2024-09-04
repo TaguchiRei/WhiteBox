@@ -7,7 +7,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] Sprite[] sprites;
     [SerializeField] GameManager _gameManager;
     float time = 0;
-    
+
     void Update()
     {
         if (time > 0)

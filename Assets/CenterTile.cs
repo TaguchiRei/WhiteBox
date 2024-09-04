@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 /// <summary>
 /// 面を回転させるためのプログラム。全方向に対応済み。
@@ -62,18 +61,35 @@ public class CenterTile : MonoBehaviour
         //GameStart();
     }
 
+    /// <summary>
+    /// スタートボタンを押した後に動かす鵜プログラムを入れる
+    /// 現在壁の生成を行うプログラムが入っている
+    /// </summary>
     void GameStart()
     {
+        bool collorChange = false;
         for (var i = 0; i < 3; i++)
         {
             for (var j = 0; j < 3; j++)
             {
                 var random = Random.Range(0, 2);
-                Vector3 pos = new (i - 1, 0.54f, j - 1);
+                Vector3 pos = new(i - 1, 0.54f, j - 1);
                 var A = Instantiate(_walls[random]);
                 A.transform.SetParent(transform);
                 A.transform.rotation = transform.rotation;
                 A.transform.localPosition = pos;
+                if (collorChange)
+                {
+                    var renderer = A.transform.GetComponentsInChildren<Renderer>();
+                    foreach (var r in renderer)
+                    {
+                        if (!r.gameObject.CompareTag("Pillar"))
+                        {
+                            r.material.color = Color.white;
+                        }
+                    }
+                }
+                collorChange = !collorChange;
             }
 
         }
