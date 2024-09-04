@@ -26,7 +26,9 @@ public class CenterTile : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0)
             {
+                var wall = transform.Find("CenterWall");
                 transform.DetachChildren();
+                wall.transform.SetParent(transform);
                 GameManager._canMove = true;
             }
         }
