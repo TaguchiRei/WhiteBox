@@ -29,8 +29,16 @@ public class CameraMove : MonoBehaviour
             Image.sprite = sprites[0];
             if (Input.GetButtonDown("Jump") && time == 0f)
             {
+                if (Input.GetMouseButtonDown(0))
+                {
+
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+
+                }
                 hit.collider.gameObject.GetComponent<CenterTile>().RotateTile();
-                _gameManager.AddRotate();
+                _gameManager.AddRotate(0);
                 time = 1.2f;
             }
         }

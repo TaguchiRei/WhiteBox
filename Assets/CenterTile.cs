@@ -13,10 +13,11 @@ public class CenterTile : MonoBehaviour
     [SerializeField] float _rotateAngle = 1;
     [SerializeField] float _rotateTime = 1;
     [SerializeField] GameObject[] _walls;
+    [SerializeField] GameObject _key;
     GameManager _gameManager;
     float timer = 0;
-    public List<Vector3> angle; //= new List<Vector3> ();
-    public List<GameObject> tileList; //new List<GameObject>();
+    public List<Vector3> angle;
+    public List<GameObject> tileList;
 
     private void Update()
     {
@@ -46,7 +47,6 @@ public class CenterTile : MonoBehaviour
             tileList.AddRange(new GameObject[] { Hit.collider.gameObject, Hit2.collider.gameObject });
         });
         tileList.ForEach(i => i.transform.SetParent(transform));
-
         tileList.Clear();
         transform.DORotate(new Vector3(0, 90 * _rotateAngle, 0), _rotateTime, RotateMode.LocalAxisAdd);
         timer = _rotateTime;
@@ -56,10 +56,6 @@ public class CenterTile : MonoBehaviour
         _gameManager = GameObject.FindObjectOfType<GameManager>();
         _gameManager.GameStart += GameStart;
     }
-    private void Start()
-    {
-        //GameStart();
-    }
 
     /// <summary>
     /// スタートボタンを押した後に動かす鵜プログラムを入れる
@@ -67,18 +63,22 @@ public class CenterTile : MonoBehaviour
     /// </summary>
     void GameStart()
     {
-        bool collorChange = false;
+        bool colorChange = false;
+        bool keyGenerate = this.gameObject.name != "whiteCenter";
+        float keyPlace = Random.Range(0, 10);
         for (var i = 0; i < 3; i++)
         {
             for (var j = 0; j < 3; j++)
             {
                 var random = Random.Range(0, 2);
+                //0.54*50 =27 足元のキューブのサイズが50で壁は4なので逸れの半径動詞を足し合わせて27。それをローカル座標に合わせて0.54になる
                 Vector3 pos = new(i - 1, 0.54f, j - 1);
                 var A = Instantiate(_walls[random]);
                 A.transform.SetParent(transform);
                 A.transform.rotation = transform.rotation;
                 A.transform.localPosition = pos;
-                if (collorChange)
+                //位置マスごとに色を変える
+                if (colorChange)
                 {
                     var renderer = A.transform.GetComponentsInChildren<Renderer>();
                     foreach (var r in renderer)
@@ -89,7 +89,17 @@ public class CenterTile : MonoBehaviour
                         }
                     }
                 }
-                collorChange = !collorChange;
+                colorChange = !colorChange;
+                //鍵を生成する
+                if (keyGenerate && i * 3 + j == keyPlace)
+                {
+                    var key = Instantiate(_key);
+                    key.transform.SetParent(transform);
+                    key.transform.localPosition = pos;
+                    key.transform.rotation = transform.rotation;
+                    key.GetComponent<Renderer>().material.color = this.GetComponent<Renderer>().material.color;
+                    key.GetComponent<Renderer>().material.SetColor("_EmissionColor",this.GetComponent<Renderer>().material.color);
+                }
             }
 
         }
